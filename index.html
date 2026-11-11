@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d1e">
+  <meta name="description" content="Неоновый платформер с тремя трассами, тренировкой и бесконечным забегом.">
+  <title>Neon Dash — ритм-платформер</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <a class="brand" href="./index.html" aria-label="Neon Dash, главное меню">
+        <span class="brand-mark" aria-hidden="true"><i></i></span>
+        <span>NEON<span class="brand-accent">DASH</span></span>
+      </a>
+      <button class="utility sound" id="sound" type="button" aria-pressed="true" title="Звук">
+        <span class="sound-icon" aria-hidden="true">♫</span><span id="sound-label">Звук вкл.</span>
+      </button>
+    </header>
+
+    <section class="cabinet" aria-label="Игровое поле">
+      <div class="cabinet-top">
+        <div class="track-name"><span class="status-light"></span><span id="track-name">Первый импульс</span></div>
+        <div class="progress-area">
+          <div class="progress-track" aria-hidden="true"><div id="progress-fill"></div></div>
+          <span id="progress-value">0%</span>
+        </div>
+        <button class="utility pause" id="pause" type="button" aria-label="Пауза" title="Пауза (Esc)" disabled><span aria-hidden="true">Ⅱ</span></button>
+      </div>
+
+      <div class="stage" id="stage">
+        <canvas id="game" aria-label="Кубик движется сам. Для прыжка нажми пробел, стрелку вверх или коснись игрового поля."></canvas>
+        <div class="stage-shade" id="stage-shade"></div>
+        <div class="overlay" id="overlay">
+          <div class="overlay-content">
+            <p class="eyebrow" id="overlay-kicker"><span></span> РИТМ-ПЛАТФОРМЕР <span></span></p>
+            <h1 id="overlay-title">NEON <em>DASH</em></h1>
+            <p class="overlay-note" id="overlay-note">Перепрыгивай шипы и держи ритм.</p>
+            <div class="overlay-actions">
+              <button class="play" id="action" type="button"><span class="play-icon" aria-hidden="true"></span><span id="action-label">Играть</span></button>
+              <button class="secondary" id="secondary" type="button" hidden>В меню</button>
+            </div>
+          </div>
+        </div>
+        <div class="notice" id="notice" aria-live="polite" hidden></div>
+      </div>
+
+      <div class="cabinet-bottom">
+        <div class="run-stats"><span>ПОПЫТКА <b id="attempt">01</b></span><span>РЕКОРД <b id="best">0%</b></span></div>
+        <div class="controls"><span><kbd>Пробел</kbd> <span class="keyboard-or">/</span> <kbd class="up-key">↑</kbd></span><span>или тап — прыжок</span></div>
+      </div>
+    </section>
+
+    <div class="selection">
+      <section aria-labelledby="levels-heading">
+        <h2 id="levels-heading">Уровни</h2>
+        <div class="levels" id="levels"></div>
+      </section>
+      <section aria-labelledby="modes-heading">
+        <h2 id="modes-heading">Режим</h2>
+        <div class="modes" id="modes">
+          <button class="mode" type="button" data-mode="normal" aria-pressed="true">
+            <span class="mode-icon" aria-hidden="true">◆</span><span><strong>Классика</strong><small>Забег до финиша</small></span>
+          </button>
+          <button class="mode" type="button" data-mode="practice" aria-pressed="false">
+            <span class="mode-icon" aria-hidden="true">⚑</span><span><strong>Тренировка</strong><small>Контрольные точки</small></span>
+          </button>
+          <button class="mode" type="button" data-mode="endless" aria-pressed="false">
+            <span class="mode-icon infinity" aria-hidden="true">∞</span><span><strong>Марафон</strong><small>Рекорд дистанции</small></span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
